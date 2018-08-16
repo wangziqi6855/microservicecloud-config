@@ -1,0 +1,16 @@
+spring: 
+  profiles: 
+    active: [dev]
+---
+spring: 
+  profiles: dev
+  application: 
+    name: microservicecloud-config-wang-dev
+
+---
+spring: 
+  profiles: test
+  application: 
+    name: microservicecloud-config-wang-test
+    
+#一定要保证这个文件是UTF-8格式的再往gitHub上传
