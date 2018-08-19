@@ -7,7 +7,7 @@ spring:
 
 ---
 server: 
-  prot: 8001
+  port: 8001
   
 spring:
   profile: dev
@@ -50,7 +50,7 @@ info:
   
 ---
 server: 
-  prot: 8001
+  port: 8001
   
 spring:
   profile: test
