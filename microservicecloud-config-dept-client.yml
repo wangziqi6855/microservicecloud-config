@@ -2,12 +2,12 @@
 spring: 
   profiles: 
     active: 
-    - test
+    - dev
     
 
 ---
 server: 
-  port: 8001
+  port: 8008
   
 spring:
   profiles: dev
