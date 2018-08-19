@@ -77,7 +77,7 @@ mybatis:
 
 eureka: 
   instance:
-    instance-id: microservicecloud-dept8001   #主机映射名称的修改
+    instance-id: microservicecloud-dept8002   #主机映射名称的修改
     prefer-ip-address: true   # 显示ip地址，而非localhost
   client:
     service-url:
