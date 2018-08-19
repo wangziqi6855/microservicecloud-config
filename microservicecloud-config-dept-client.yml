@@ -1,0 +1,92 @@
+#测试的 provider的配置文件
+spring: 
+  profiles: 
+    active: 
+    - dev
+    
+
+---
+server: 
+  prot: 8001
+  
+spring:
+  profile: dev
+  application: 
+    name: microservicecloud-config-dept-client
+  datasource: 
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.wang.springcloud.entities    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件  **表示可以表示任意多级目录
+  
+
+eureka: 
+  instance:
+    instance-id: microservicecloud-dept8001   #主机映射名称的修改
+    prefer-ip-address: true   # 显示ip地址，而非localhost
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+      
+# 这个info是spring-boot-starter-actuator这个组件添加依赖后，然后可以使用的，info的类型是一个Map
+info:
+  app.name: wang-microservicecloud
+  company.name: www.wang.com
+  build.artifact: $project.artifactId$
+  build.version: $project.version$
+  
+  
+---
+server: 
+  prot: 8001
+  
+spring:
+  profile: test
+  application: 
+    name: microservicecloud-config-dept-client
+  datasource: 
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.wang.springcloud.entities    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件  **表示可以表示任意多级目录
+  
+
+eureka: 
+  instance:
+    instance-id: microservicecloud-dept8001   #主机映射名称的修改
+    prefer-ip-address: true   # 显示ip地址，而非localhost
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+      
+# 这个info是spring-boot-starter-actuator这个组件添加依赖后，然后可以使用的，info的类型是一个Map
+info:
+  app.name: wang-microservicecloud
+  company.name: www.wang.com
+  build.artifact: $project.artifactId$
+  build.version: $project.version$
+  
